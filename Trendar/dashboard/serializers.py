@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 from rest_framework import serializers
-from .models import in_elements,negative,sentiment
+from .models import in_elements,negative,sentiment,neg_total
 
 
 class ElementsSerializer(serializers.ModelSerializer):
@@ -22,3 +22,8 @@ class SentimentSerializer(serializers.ModelSerializer):
     class Meta:
         model = sentiment
         fields = ('number',)
+
+class NegTotalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = neg_total
+        fields = ('typeof','number')

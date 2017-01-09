@@ -12,6 +12,10 @@ class latest(models.Model):
 class sentiment(models.Model):
     number = models.IntegerField(default=0)
 
+class neg_total(models.Model):
+    typeof = models.CharField(max_length=10)
+    number = models.IntegerField(default=0)
+
 class negative(models.Model):
     typeof = models.CharField(max_length=10)
     score = models.FloatField(default=0)

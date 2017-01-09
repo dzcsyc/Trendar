@@ -11,6 +11,7 @@ for tag in tags:
     print("tag: %s\t\t weight: %f" % (tag[0],tag[1]))
 print('=' * 40)
 tags2 = jieba.analyse.textrank(f, topK=20, withWeight=True)
+print(tags2)
 for tag2 in tags2:
     cursor.execute('insert into dashboard_in_elements (name,rank) values (?,?)', (tag2[0], tag2[1]))
     print("tag: %s\t\t weight: %f" % (tag2[0],tag2[1]))

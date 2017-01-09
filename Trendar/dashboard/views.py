@@ -1,13 +1,13 @@
 #coding:utf-8
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import in_elements,latest,negative
+from .models import in_elements,latest,negative,neg_total
 from .models import sentiment as senti
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
-from .serializers import ElementsSerializer,NegativeSerializer,SentimentSerializer,NegativeRecourceSerializer
+from .serializers import ElementsSerializer,NegativeSerializer,SentimentSerializer,NegativeRecourceSerializer,NegTotalSerializer
 
 
 
@@ -62,4 +62,10 @@ def Sentiment_list(request):
 def Negative_list(request):
     neg = negative.objects.all()
     serializer = NegativeSerializer(neg, many=True)
+    return JSONResponse(serializer.data)
+
+@api_view(['GET'])
+def Neg_total(request):
+    total = neg_total.objects.all()
+    serializer = NegTotalSerializer(total, many=True)
     return JSONResponse(serializer.data)

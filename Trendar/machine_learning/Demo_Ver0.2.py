@@ -1,4 +1,5 @@
 from snownlp import SnowNLP
+from collections import OrderedDict
 import jieba
 import jieba.analyse
 import sqlite3
@@ -47,8 +48,20 @@ conn = sqlite3.connect(r'C:\Users\I321338\PycharmProjects\Trendar\db.sqlite3')
 cursor = conn.cursor()
 cursor.execute("delete from dashboard_negative")
 cursor.execute("update sqlite_sequence SET seq = 0 where name ='dashboard_negative'")
+cursor.execute("delete from dashboard_neg_total")
+cursor.execute("update sqlite_sequence SET seq = 0 where name ='dashboard_neg_total'")
 result = [[],[],[],[]]
 f = open(r"C:\Users\I321338\PycharmProjects\Trendar\machine_learning\Demo_Ver0.1_500.txt",'r', encoding='utf-8')
+total = OrderedDict()
+total['物流'] = 0
+total['掉毛'] = 0
+total['鞋底'] = 0
+total['客服'] = 0
+total['包装'] = 0
+total['有味道'] = 0
+total['鞋码'] = 0
+total['外观'] = 0
+total['其他'] = 0
 
 text = f.readline()
 while text!="":
@@ -62,29 +75,40 @@ while text!="":
                 if (j in val) and (j != ' '):
                     if (index == 0):
                         typeof = '物流'
+                        total['物流'] = total['物流']+1
                     elif (index == 1):
                         typeof = '掉毛'
+                        total['掉毛'] = total['掉毛']+1
                     elif (index == 2):
                         typeof = '鞋底'
+                        total['鞋底'] = total['鞋底']+1
                     elif (index == 3):
                         typeof = '客服'
+                        total['客服'] = total['客服']+1
                     elif (index == 4):
                         typeof = '包装'
+                        total['包装'] = total['包装']+1
                     elif (index == 5):
                         typeof = '有味道'
+                        total['有味道'] = total['有味道']+1
                     elif (index == 6):
                         typeof = '鞋码'
+                        total['鞋码'] = total['鞋码']+1
                     elif (index == 7):
                         typeof = '外观'
+                        total['外观'] = total['外观']+1
                     #result[index].write(str(score) + ' ' + text)
                     cursor.execute('insert into dashboard_negative (typeof,score,content) values (?,?,?)', (typeof,score,text))
                     flag = False
                     break
         if flag:
             typeof = '其他'
+            total['其他'] = total['其他']+1
             cursor.execute('insert into dashboard_negative (typeof,score,content) values (?,?,?)', (typeof,score,text))
         #r.write(text)
     text = f.readline()
+for (k,v) in total.items():
+    cursor.execute('insert into dashboard_neg_total (typeof,number) values (?,?)', (k,v))
 f.close()
 conn.commit()
 # text = f.readline()

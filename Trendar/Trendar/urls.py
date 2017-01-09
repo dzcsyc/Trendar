@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^api/resource/(?P<typeof>[\u4e00-\u9fa5]+)$', dashboard_views.negative_resource, name='resource'),
     url(r'^api/sentiment/$', dashboard_views.Sentiment_list, name='sentiment_list'),
     url(r'^api/negative/$', dashboard_views.Negative_list, name='negative_list'),
+    url(r'^api/negtotal/$', dashboard_views.Neg_total, name='negative_total'),
 ]
