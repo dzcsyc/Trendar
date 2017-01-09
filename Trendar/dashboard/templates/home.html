@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trend'ar</title>
+    <script src="/statics/frontpage.js"></script>
+    <link rel="stylesheet" type="text/css" href="/statics/frontpage.css">
+</head>
+<body>
+
+<header>
+    <h1>Trend'ar</h1>
+    <input type="search">
+    <button>search</button>
+</header>
+
+<div id="navigate">
+    <ul>
+        <li>
+            <a>&gt Home</a>
+        </li>
+        <li>
+            <a>&gt What's In</a>
+        </li>
+    </ul>
+</div>
+
+<div id="column-1">
+    <div class="info-box" id="top-sources">
+        <h3>Top Sources</h3>
+        <dl>
+            <dt>ELLE</dt><dd>122</dd>
+            <dt>BAZZAR</dt><dd>84</dd>
+            <dt>GLAMOR</dt><dd>67</dd>
+            <dt>STYLE WA.</dt><dd>33</dd>
+            <dt>HUNTER</dt><dd>17</dd>
+        </dl>
+    </div>
+    <div class="info-box" id="update-time">
+        <h3>Latest Update</h3>
+        <p>{{ date }}</p>
+    </div>
+</div>
+
+<div id="column-2">
+    <div class="entry">
+        <a href="{% url 'in' %}" >
+            <img src="/statics/images/shoe.png">
+        </a>
+            <h4>What's In</h4>
+    </div>
+    <div class="entry">
+        <a href="{% url 'negative' %}">
+            <img src="/statics/images/sad_face.png">
+        </a>
+            <h4>Top Negatives</h4>
+    </div>
+    <div class="entry">
+        <a href="{% url 'sentiment' %}">
+            <img src="/statics/images/comment_box.png">
+        </a>
+            <h4>Likes & Dislikes</h4>
+    </div>
+</div>
+
+<div id="column-3">
+    <div class="info-box" id="top-reads">
+        <h3>Top Reads</h3>
+        <ul>
+            <li><a>How Five Ballerinas Get Ready For The 'Nutcracker'</a></li>
+            <li><a>The Shoe Brand That's Taking Over The Red Carpet</a></li>
+            <li><a>Rihanna Wore A Santa Belt Out</a></li>
+            <li><a>The 10 Most Expensive Things Kate Middleton Wore In 2016</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
