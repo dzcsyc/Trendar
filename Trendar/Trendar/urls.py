@@ -20,7 +20,7 @@ from dashboard import views as dashboard_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', dashboard_views.index),
+    url(r'^$', dashboard_views.index, name='home'),
     url(r'^in/', dashboard_views.whatsin, name='in'),
     url(r'^negative/', dashboard_views.neg, name='negative'),
     url(r'^sentiment/', dashboard_views.sentiment, name='sentiment'),

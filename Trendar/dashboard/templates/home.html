@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Trend'ar</title>
-    <script src="/statics/frontpage.js"></script>
-    <link rel="stylesheet" type="text/css" href="/statics/frontpage.css">
+    <script src="/statics/js/frontpage.js"></script>
+    <link rel="stylesheet" type="text/css" href="/statics/css/trend.css">
 </head>
 <body>
-
+<div id="wrapper">
 <header>
-    <h1>Trend'ar</h1>
-    <input type="search">
-    <button>search</button>
+<a href= "{% url 'home' %}"> <img alt="140x260" src="statics/images/Header.JPG"  /></a>
+    <!--<input type="search">
+    <button>search</button>-->
+
 </header>
 
 <div id="navigate">
     <ul>
-        <li>
-            <a>&gt Home</a>
-        </li>
-        <li>
-            <a>&gt What's In</a>
-        </li>
+        <li>&gt
+                <!--<a>&gt Home</a>-->
+                <a href="{% url 'home' %}"> Home</a>
+            </li>
+            <!--<li>&gt
+                <a href="What'sIn.html">What's In</a>
+            </li>-->
     </ul>
 </div>
 
@@ -38,42 +40,43 @@
     </div>
     <div class="info-box" id="update-time">
         <h3>Latest Update</h3>
-        <p>{{ date }}</p>
+        <p id = "update-time-data"><script>document.write(Time())</script></p>
     </div>
 </div>
 
 <div id="column-2">
     <div class="entry">
-        <a href="{% url 'in' %}" >
-            <img src="/statics/images/shoe.png">
-        </a>
+        <a href="{% url 'in' %}"><img src="statics/images/shoe.png">
             <h4>What's In</h4>
+        </a>
     </div>
     <div class="entry">
-        <a href="{% url 'negative' %}">
-            <img src="/statics/images/sad_face.png">
-        </a>
+        <a href= "{% url 'negative' %}">
+            <img src="statics/images/sad_face.png">
             <h4>Top Negatives</h4>
+        </a>
     </div>
     <div class="entry">
-        <a href="{% url 'sentiment' %}">
-            <img src="/statics/images/comment_box.png">
-        </a>
+        <a href ="{% url 'sentiment' %}">
+            <img src="statics/images/comment_box.png">
             <h4>Likes & Dislikes</h4>
+        </a>
     </div>
 </div>
 
 <div id="column-3">
+
     <div class="info-box" id="top-reads">
-        <h3>Top Reads</h3>
-        <ul>
-            <li><a>How Five Ballerinas Get Ready For The 'Nutcracker'</a></li>
-            <li><a>The Shoe Brand That's Taking Over The Red Carpet</a></li>
-            <li><a>Rihanna Wore A Santa Belt Out</a></li>
-            <li><a>The 10 Most Expensive Things Kate Middleton Wore In 2016</a></li>
+        <h3>Summary</h3>
+        <!--<p>
+
+        </p>-->
+        <ul id= "content">
+        	<script>document.write(Summary())</script>
+
         </ul>
     </div>
 </div>
-
+</div>
 </body>
 </html>
