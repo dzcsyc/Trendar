@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What's In</title>
+    <script src="trend.js"></script>
+    <link rel="stylesheet" type="text/css" href="/statics/css/trend.css">
+</head>
+
+<body>
+<div id="wrapper">
+    <header>
+        <!--<h1>Trend'ar</h1>-->
+        <!--<input type="search">s-->
+        <!--<button>search</button>-->
+        <a href= "{% url 'home' %}"> <img alt="140x260" src="/statics/images/Header.JPG"/>
+        </a>
+    </header>
+
+    <div id="navigate">
+    <ul>
+        <li>&gt
+                <!--<a>&gt Home</a>-->
+                <a href="{% url 'home' %}"> Home</a>
+            </li>
+            <li>&gt
+                <a href="{% url 'in' %}">What's In</a>
+            </li>
+    </ul>
+    </div>
+
+    <div id="column-1">
+        <div class="info-box" id="top-positives">
+            <h3>Top Positives</h3>
+            <dl>
+                <!--<dt>金属钉</dt><dd>15620</dd>-->
+                <!--<dt>深咖啡</dt><dd>10220</dd>-->
+                <!--<dt>红色</dt><dd>8924</dd>-->
+                <!--<dt>人造革</dt><dd>7664</dd>-->
+                <!--<dt>高帮</dt><dd>5561</dd>-->
+            </dl>
+        </div>
+    </div>
+
+    <div id="column-2">
+        <div class="info-box" id="top-phrases">
+            <h3>Top Phrases</h3>
+            <!--<canvas id="text-cloud"></canvas>-->
+        </div>
+    </div>
+
+    <div id="column-3">
+        <div class="info-box" id="compare">
+            <h3>Compare</h3>
+            <ul>
+                <li>麂皮</li>
+                <li>真皮</li>
+                <li>人造革</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

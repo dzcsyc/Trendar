@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trend'ar</title>
+    <script src="/statics/js/frontpage.js"></script>
+    <link rel="stylesheet" type="text/css" href="/statics/css/trend.css">
+</head>
+<body>
+<div id="wrapper">
+<header>
+<a href= "{% url 'home' %}"> <img alt="140x260" src="statics/images/Header.JPG"  /></a>
+    <!--<input type="search">
+    <button>search</button>-->
+
+</header>
+
+<div id="navigate">
+    <ul>
+        <li>&gt
+                <!--<a>&gt Home</a>-->
+                <a href="{% url 'home' %}"> Home</a>
+            </li>
+            <!--<li>&gt
+                <a href="What'sIn.html">What's In</a>
+            </li>-->
+    </ul>
+</div>
+
+<div id="column-1">
+    <div class="info-box" id="top-sources">
+        <h3>Top Sources</h3>
+        <dl>
+            <dt>ELLE</dt><dd>122</dd>
+            <dt>BAZZAR</dt><dd>84</dd>
+            <dt>GLAMOR</dt><dd>67</dd>
+            <dt>STYLE WA.</dt><dd>33</dd>
+            <dt>HUNTER</dt><dd>17</dd>
+        </dl>
+    </div>
+    <div class="info-box" id="update-time">
+        <h3>Latest Update</h3>
+        <p id = "update-time-data"><script>document.write(Time())</script></p>
+    </div>
+</div>
+
+<div id="column-2">
+    <div class="entry">
+        <a href="{% url 'in' %}"><img src="statics/images/shoe.png">
+            <h4>What's In</h4>
+        </a>
+    </div>
+    <div class="entry">
+        <a href= "{% url 'negative' %}">
+            <img src="statics/images/sad_face.png">
+            <h4>Top Negatives</h4>
+        </a>
+    </div>
+    <div class="entry">
+        <a href ="{% url 'sentiment' %}">
+            <img src="statics/images/comment_box.png">
+            <h4>Likes & Dislikes</h4>
+        </a>
+    </div>
+</div>
+
+<div id="column-3">
+
+    <div class="info-box" id="top-reads">
+        <h3>Summary</h3>
+        <!--<p>
+
+        </p>-->
+        <ul id= "content">
+        	<script>document.write(Summary())</script>
+
+        </ul>
+    </div>
+</div>
+</div>
+</body>
+</html>
