@@ -40,7 +40,12 @@
     </div>
     <div class="info-box" id="update-time">
         <h3>Latest Update</h3>
-        <p id = "update-time-data"><script>document.write(Time())</script></p>
+{#        <p id = "update-time-data"><script>document.write(Time())</script></p>#}
+        <p>
+            {%  for i in info %}
+                <div>{{ i.date }}</div>
+            {% endfor %}
+        </p>
     </div>
 </div>
 
@@ -68,13 +73,18 @@
 
     <div class="info-box" id="top-reads">
         <h3>Summary</h3>
-        <!--<p>
-
-        </p>-->
-        <ul id= "content">
-        	<script>document.write(Summary())</script>
-
-        </ul>
+{#        <!--<p>#}
+{##}
+{#        </p>-->#}
+{#        <ul id= "content">#}
+{#        	<script>document.write(Summary())</script>#}
+{##}
+{#        </ul>#}
+            <a>
+                {%  for i in info %}
+                <div>{{ i.summary }}</div>
+                {% endfor %}
+            </a>
     </div>
 </div>
 </div>

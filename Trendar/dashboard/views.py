@@ -21,8 +21,8 @@ class JSONResponse(HttpResponse):
         super(JSONResponse, self).__init__(content, **kwargs)
 
 def index(request):
-    date=latest.objects.all()[:1]
-    return render(request, 'home.html', {'date':date})
+    info=latest.objects.all()[:1]
+    return render(request, 'home.html', {'info':info})
 
 def whatsin(request):
     elements = in_elements.objects.all()

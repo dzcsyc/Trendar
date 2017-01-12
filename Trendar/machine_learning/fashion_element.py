@@ -1,11 +1,18 @@
 import jieba
 import jieba.analyse
 import sqlite3
+from snownlp import SnowNLP
 
-conn = sqlite3.connect(r'C:\Users\I321338\PycharmProjects\Trendar\db.sqlite3')
+conn = sqlite3.connect(r'..\db.sqlite3')
 cursor = conn.cursor()
 jieba.analyse.set_stop_words("stop_words.txt")
-f = open(r"C:\Users\I321338\PycharmProjects\Trendar\machine_learning\fashion.txt", 'rb').read()
+f = open(r"fashion.txt", 'rb').read()
+f1 = open(r"fashion.txt",'r', encoding='utf-8')
+text = f1.readlines()
+text_snow = SnowNLP(str(text))
+sum = text_snow.summary(5)
+summary = '，'.join(sum)
+summary = '    '+str(summary)+'。'
 tags = jieba.analyse.extract_tags(f, topK=15, withWeight=True)
 for tag in tags:
     print("tag: %s\t\t weight: %f" % (tag[0],tag[1]))
@@ -17,5 +24,5 @@ for tag2 in tags2:
     print("tag: %s\t\t weight: %f" % (tag2[0],tag2[1]))
 cursor.execute("delete from dashboard_latest")
 cursor.execute("update sqlite_sequence SET seq = 0 where name ='dashboard_latest'")
-cursor.execute(" insert into dashboard_latest (date) values(datetime( 'now' , 'localtime' ) ) ")
+cursor.execute(" insert into dashboard_latest (date,summary) values(datetime( 'now' , 'localtime' ),?)",(summary,))
 conn.commit()

@@ -7,7 +7,9 @@ class in_elements(models.Model):
     rank = models.FloatField(default=0)
 
 class latest(models.Model):
+    summary = models.CharField(max_length=150)
     date = models.DateTimeField()
+
 
 class sentiment(models.Model):
     number = models.IntegerField(default=0)
