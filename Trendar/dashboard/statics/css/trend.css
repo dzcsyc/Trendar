@@ -194,5 +194,15 @@ header input{
     overflow: hidden;
 }
 
+#sentimentDistribution{
+    width:580px;
+    height:400px;
+}
+
+#sentimentDistribution canvas{
+    width: 300px;
+    height: 200px;
+}
+
 
 
