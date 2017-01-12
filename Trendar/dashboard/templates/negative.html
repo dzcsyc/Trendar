@@ -2,20 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nagetive</title>
+    <title>Negative</title>
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script>
-    <script src="/statics/echarts.js"></script>
-    <script>
+    <script src="/statics/js/echarts.js"></script>
+    <script language="javascript" src="/statics/js/negative.js"></script>
+    <link rel="stylesheet" type="text/css" href="/statics/css/trend.css">
 
-    </script>
 </head>
 <body>
-{#    {%  for n in neg %}#}
-{#        <div>{{ n.typeof }} : {{ n.score }} : {{ n.content }}</div>#}
-{#    {% endfor %}#}
+<div id="wrapper">
+    <header>
+        <!--<h1>Trend'ar</h1>-->
+        <a href= "{% url 'home' %}"><img alt="140x260" src="/statics/images/Header.JPG"/></a>
+        <!--<input type="search">
+        <button>search</button>-->
+    </header>
 
-    <div id="main" style="width: 600px; height:400px;"></div>
-    <div id="show"></div>
+    <div id="navigate">
+        <ul>
+            <li>&gt
+                <!--<a>&gt Home</a>-->
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li>&gt
+                <a href="{% url 'negative' %}">Top Negatives</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="column-1">
+        <div class="info-box" id="top-positives">
+            <h3>Top Negatives</h3>
+            <div id="topNegatives"></div>
+
+
+        </div>
+    </div>
+
+    <div id="column-2">
+        <div class="info-box" id="top-phrases">
+            <h3>Sentiment Expression Distribution</h3>
+            <div id="main" style="width: 500px; height:400px;"><script>display()</script></div>
+
+
+        </div>
+    </div>
+
+    <div id="column-3">
+        <div class="info-box" id="feature">
+            <h3>Feature</h3>
+            <div id="show"></div>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
 </html>

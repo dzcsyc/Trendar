@@ -58,7 +58,7 @@ header input{
 }
 
 #column-2{
-    width: 48%;
+    width: 46%;
 }
 
 #column-3{
@@ -136,3 +136,63 @@ header input{
 
     border: 1px solid gray;
 }
+
+#compare ul{
+    padding: 0;
+}
+
+#compare li{
+    margin: 5px 2px;
+    padding: 3px 8px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#compare{
+    overflow: hidden;
+}
+
+#compare button{
+    float: right;
+}
+
+#feature h3{
+    display: inline-block;
+}
+
+#feature span{
+    margin: 5px 2px;
+    padding: 3px 8px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+#feature ul{
+    padding: 0;
+    max-height: 400px;
+    overflow-x: visible;
+    overflow-y: hidden;
+
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+#feature ul:hover{
+    overflow-y: auto;
+}
+
+#feature li{
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-bottom: 2px;
+    border-bottom: 0.5px solid lightgray;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+
+
