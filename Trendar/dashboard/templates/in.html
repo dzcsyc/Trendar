@@ -2,55 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>What's In</title>
-    <script src="trend.js"></script>
-    <link rel="stylesheet" type="text/css" href="/statics/css/trend.css">
+    <title>What'sIn</title>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script>
+    <script src="/statics/js/echarts.js"></script>
+    <script src="/statics/js/echarts-wordcloud.js"></script>
+    <script src="/statics/js/in.js"></script>
+    <link rel="stylesheet"type="text/css"href="/statics/css/trend.css">
 </head>
 
 <body>
 <div id="wrapper">
     <header>
-        <!--<h1>Trend'ar</h1>-->
-        <!--<input type="search">s-->
-        <!--<button>search</button>-->
-        <a href= "{% url 'home' %}"> <img alt="140x260" src="/statics/images/Header.JPG"/>
-        </a>
+            <!--<h1>Trend'ar</h1>-->
+    <!--<inputtype="search">s-->
+    <!--<button>search</button>-->
+        <a href="{% url 'home' %}"><img alt="140x260" src="/statics/images/Header.JPG"/></a>
     </header>
-
     <div id="navigate">
-    <ul>
-        <li>&gt
-                <!--<a>&gt Home</a>-->
-                <a href="{% url 'home' %}"> Home</a>
-            </li>
+        <ul>
             <li>&gt
-                <a href="{% url 'in' %}">What's In</a>
+                <!--<a>&gtHome</a>-->
+                <a href="{% url 'home' %}">Home</a>
             </li>
-    </ul>
+                <li>&gt
+                <a href="{% url 'in' %}">What'sIn</a>
+            </li>
+        </ul>
     </div>
 
     <div id="column-1">
-        <div class="info-box" id="top-positives">
-            <h3>Top Positives</h3>
-            <dl>
-                <!--<dt>金属钉</dt><dd>15620</dd>-->
-                <!--<dt>深咖啡</dt><dd>10220</dd>-->
-                <!--<dt>红色</dt><dd>8924</dd>-->
-                <!--<dt>人造革</dt><dd>7664</dd>-->
-                <!--<dt>高帮</dt><dd>5561</dd>-->
-            </dl>
+        <div class="info-box"id="top-positives">
+            <h3>TopPositives</h3>
+            <dl></dl>
         </div>
     </div>
 
     <div id="column-2">
-        <div class="info-box" id="top-phrases">
-            <h3>Top Phrases</h3>
-            <!--<canvas id="text-cloud"></canvas>-->
+        <div class="info-box"id="top-phrases">
+            <h3>TopPhrases</h3>
+            <label class="switch">
+                <input type="checkbox">
+                <div class="slider">
+                    <span>TextRank</span>
+                    <span>TF-IDF</span>
+                </div>
+            </label>
+            <div id="word-cloud"style="width:400px;height:400px"></div>
         </div>
     </div>
 
     <div id="column-3">
-        <div class="info-box" id="compare">
+        <div class="info-box"id="compare">
             <h3>Compare</h3>
             <ul>
                 <li>麂皮</li>
@@ -60,5 +63,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
