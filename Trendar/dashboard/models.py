@@ -2,7 +2,11 @@ from django.db import models
 
 # Create your models here.
 
-class in_elements(models.Model):
+class in_extract_tags(models.Model):
+    name = models.CharField(max_length=10)
+    rank = models.FloatField(default=0)
+
+class in_textrank(models.Model):
     name = models.CharField(max_length=10)
     rank = models.FloatField(default=0)
 

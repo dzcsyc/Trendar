@@ -1,13 +1,13 @@
 #coding:utf-8
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import in_elements,latest,negative,neg_total
+from .models import in_extract_tags,in_textrank,latest,negative,neg_total
 from .models import sentiment as senti
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
-from .serializers import ElementsSerializer,NegativeSerializer,SentimentSerializer,NegativeRecourceSerializer,NegTotalSerializer
+from .serializers import T_ElementsSerializer,E_ElementsSerializer,NegativeSerializer,SentimentSerializer,NegativeRecourceSerializer,NegTotalSerializer
 
 
 
@@ -25,7 +25,7 @@ def index(request):
     return render(request, 'home.html', {'info':info})
 
 def whatsin(request):
-    elements = in_elements.objects.all()
+    elements = in_textrank.objects.all()
     print(elements)
     return render(request, 'in.html', {'data':elements})
 
@@ -38,9 +38,15 @@ def sentiment(request):
     return render(request, 'sentiment.html', {'sentiment': sen})
 
 @api_view(['GET'])
-def Elements_list(request):
-    elements = in_elements.objects.all()
-    serializer = ElementsSerializer(elements, many=True)
+def Elements_list_t(request):
+    elements = in_textrank.objects.all()
+    serializer = T_ElementsSerializer(elements, many=True)
+    return JSONResponse(serializer.data)
+
+@api_view(['GET'])
+def Elements_list_e(request):
+    elements = in_extract_tags.objects.all()
+    serializer = E_ElementsSerializer(elements, many=True)
     return JSONResponse(serializer.data)
 
 @api_view(['GET'])

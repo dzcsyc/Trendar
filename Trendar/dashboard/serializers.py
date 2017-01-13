@@ -1,11 +1,16 @@
 # -*- coding:utf-8 -*-
 from rest_framework import serializers
-from .models import in_elements,negative,sentiment,neg_total
+from .models import in_textrank,in_extract_tags,negative,sentiment,neg_total
 
 
-class ElementsSerializer(serializers.ModelSerializer):
+class T_ElementsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = in_elements
+        model = in_textrank
+        fields = ('name', 'rank')
+
+class E_ElementsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = in_extract_tags
         fields = ('name', 'rank')
 
 class NegativeSerializer(serializers.ModelSerializer):
