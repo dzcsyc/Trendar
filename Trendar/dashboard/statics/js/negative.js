@@ -40,20 +40,25 @@ function display(){
                     this.number=number;
                     }
                     $.each(data,function(index,item){
+                    if(item.typeof != "其他"){
                     objectList.push(new TopNeg(item.typeof,item.number));
+                    }
                     })
                     objectList.sort(function(a,b){
                     return b.number-a.number});
                     for(var i=0;i<objectList.length;i++){
+//                    while(objectList[i].feature!="其他")
+//                    {
                     $("#topNegatives").append(
-                    "<tr>"
-                    +"<td>"+ objectList[i].feature
-                    + "<td>"+"-----------------------"+objectList[i].number
-                    + "</tr>"
-
+                   // "<tr>"
+                    //+"<td>"+ objectList[i].feature
+                    //+ "<td>"+""+objectList[i].number
+                   // + "</tr>"
+                   "<dt>"+objectList[i].feature+"</dt>"
+                   +"<dd>"+objectList[i].number+"</dd>"
                     );
+//                    }
                     //$("#topNegatives").html("feature:"+objectList[i].feature+"---number:"+objectList[i].number);
-
                     }
 
 
@@ -73,9 +78,9 @@ function display(){
                                 $("#show").empty()
                                 $.each(data, function(index, item) {
                                     $("#show").append(
-                                            "<tr>"
-                                            + "<td>" + item.content + "</td>"
-                                            + "</tr>"
+                                            "<li>"
+                                            + item.content
+                                            + "</li>"
                                     );
                                 })
                             },
